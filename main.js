@@ -5,6 +5,12 @@ function generateDivs(num) {
         const div = document.createElement("div");
         div.classList.add("grid");
         container.appendChild(div);
+        div.addEventListener("mouseenter", () => {
+            div.style.backgroundColor = "#D8DAD3";
+        });
+        div.addEventListener("mouseleave", () => {
+            div.style.backgroundColor = "white";
+        });
     }
 }
 
