@@ -1,6 +1,7 @@
 const container = document.querySelector(".container");
 const gridSize = document.querySelector(".gridSize");
-const button = document.querySelector("button");
+const change = document.querySelector(".change");
+const reset = document.querySelector(".reset");
 
 function generateDivs(num) {
     let basis = 100 / num;
@@ -15,6 +16,7 @@ function generateDivs(num) {
     }
 }
 
+generateDivs(16);
 const grid = document.querySelectorAll(".grid");
 
 function resetGrid() {
@@ -29,6 +31,6 @@ function removeGrid() {
     });
 }
 
-button.addEventListener("click", removeGrid);
-button.addEventListener("click", () => generateDivs(Number(gridSize.value)));
-button.addEventListener("click", resetGrid);
+change.addEventListener("click", removeGrid);
+change.addEventListener("click", () => generateDivs(Number(gridSize.value)));
+reset.addEventListener("click", resetGrid);
