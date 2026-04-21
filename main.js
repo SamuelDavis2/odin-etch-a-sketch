@@ -18,12 +18,21 @@ function generateDivs(num) {
 
 generateDivs(16);
 
+function newGrid() {
+    if (Number(gridSize.value) > 100) {
+        alert("ERROR: Please enter a number under 100");
+        gridSize.value = "";
+    } else {
+        generateDivs(Number(gridSize.value));
+    }
+}
+
 function resetGrid() {
     const grid = document.querySelectorAll(".grid");
     grid.forEach(cell => {
         cell.style.backgroundColor = "white";
     });
-} // Fix so it works when grid size is changed too
+}
 
 function removeGrid() {
     const grid = document.querySelectorAll(".grid");
@@ -33,5 +42,7 @@ function removeGrid() {
 }
 
 change.addEventListener("click", removeGrid);
-change.addEventListener("click", () => generateDivs(Number(gridSize.value)));
+change.addEventListener("click", newGrid);
+change.addEventListener("click", () => gridSize.value = '');
+
 reset.addEventListener("click", resetGrid);
