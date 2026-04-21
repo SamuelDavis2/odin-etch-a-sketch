@@ -17,15 +17,16 @@ function generateDivs(num) {
 }
 
 generateDivs(16);
-const grid = document.querySelectorAll(".grid");
 
 function resetGrid() {
+    const grid = document.querySelectorAll(".grid");
     grid.forEach(cell => {
         cell.style.backgroundColor = "white";
     });
-}
+} // Fix so it works when grid size is changed too
 
 function removeGrid() {
+    const grid = document.querySelectorAll(".grid");
     grid.forEach(cell => {
         cell.remove();
     });
