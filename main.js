@@ -17,6 +17,7 @@ function generateDivs(num) {
 }
 
 generateDivs(16);
+setupOpacity();
 
 function newGrid() {
     if (Number(gridSize.value) > 100) {
@@ -25,6 +26,7 @@ function newGrid() {
     } else {
         generateDivs(Number(gridSize.value));
     }
+    setupOpacity();
 }
 
 function resetGrid() {
@@ -46,3 +48,19 @@ change.addEventListener("click", newGrid);
 change.addEventListener("click", () => gridSize.value = '');
 
 reset.addEventListener("click", resetGrid);
+
+function setupOpacity() {
+    const gridCell = document.querySelectorAll(".grid");
+
+    gridCell.forEach(cell => {
+    
+        cell.dataset.opacity = 0.1;
+
+        cell.addEventListener("mouseenter", () => {
+        let opacity = parseFloat(cell.dataset.opacity);
+        opacity = Math.min(1, opacity + 0.1);
+        cell.dataset.opacity = opacity;
+        cell.style.opacity = opacity;
+        })
+    });
+}
