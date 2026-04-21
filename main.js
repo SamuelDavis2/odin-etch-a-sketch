@@ -1,4 +1,6 @@
 const container = document.querySelector(".container");
+const gridSize = document.querySelector(".gridSize");
+const button = document.querySelector("button");
 
 function generateDivs(num) {
     let basis = 100 / Math.sqrt(num);
@@ -13,4 +15,4 @@ function generateDivs(num) {
     }
 }
 
-generateDivs(100);
+button.addEventListener("click", () => generateDivs(Number(gridSize.value)));
